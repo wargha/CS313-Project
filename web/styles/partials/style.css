@@ -1,0 +1,27 @@
+html,
+body {
+  height: 100%;
+  width: 100%; }
+
+body {
+  font-family: 'Fjalla One', sans-serif;
+  margin: 0;
+  padding: 0; }
+
+:root {
+  --primary-color: #ff6900;
+  --dark-texter: #303d46; }
+
+.container {
+  display: flex; }
+
+.row {
+  flex-flow: row; }
+
+.col {
+  flex-flow: column; }
+
+.center {
+  justify-content: center; }
+
+/*# sourceMappingURL=style.css.map */
