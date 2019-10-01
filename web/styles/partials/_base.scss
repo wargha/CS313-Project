@@ -16,6 +16,8 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    transition: all 1s ease-in-out;
 }
 
 :root {
