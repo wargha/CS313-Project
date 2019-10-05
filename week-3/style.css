@@ -1,7 +1,9 @@
 html,
 body {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 50px;
+  scroll-behavior: smooth; }
 
 * {
   margin: 0;
@@ -38,34 +40,45 @@ body {
 header {
   width: 100vw;
   max-width: 100vw;
-  background: var(--dark-texter);
-  height: 80px;
+  background: white;
+  height: 60px;
   justify-content: space-around; }
   header .name {
-    margin-top: 15px;
+    margin-top: 10px;
     font-family: 'Fjalla One', sans-serif;
-    color: white;
+    color: #565656;
     font-size: 36px; }
   header .social-media {
-    margin-top: 15px; }
+    margin: 15px 0;
+    cursor: pointer; }
     header .social-media i {
-      color: white !important; }
+      margin: 0;
+      color: #565656;
+      max-height: 15px;
+      width: auto; }
     header .social-media i:first-of-type {
-      margin-right: 30px; }
+      margin-right: 10px; }
+    header .social-media i:hover {
+      transform: scale(1.3);
+      transition: all .4s linear; }
+    header .social-media span {
+      margin-top: 3px;
+      color: #565656; }
   header .wrap-personal-header {
-    margin-top: 20px; }
+    margin-top: 10px; }
     header .wrap-personal-header a {
       margin-right: 20px; }
     header .wrap-personal-header .anchor,
     header .wrap-personal-header a {
       text-decoration: none;
       font-family: 'Fjalla One', sans-serif;
-      color: white;
+      color: #565656;
       font-size: 30px; }
     header .wrap-personal-header .anchor:not(:last-of-type) {
       margin-right: 20px; }
 
 footer {
+  width: 100vw;
   height: 50px;
   background: var(--dark-texter);
   text-align: center;
@@ -73,6 +86,46 @@ footer {
   footer span {
     font-family: 'Rubik', sans-serif;
     margin: auto 0; }
+
+.active-cart {
+  top: 60px !important; }
+
+.shopping-card {
+  width: 350px;
+  position: absolute;
+  top: -290px;
+  right: 0;
+  background: #accbee;
+  transition: all .6s linear;
+  min-height: 100px;
+  height: 180px;
+  border-radius: 21px; }
+  .shopping-card h4 {
+    margin-top: 10px;
+    text-align: center;
+    color: var(--dark-texter); }
+  .shopping-card button {
+    background: #4eb14e;
+    height: 25px;
+    border-radius: 21px;
+    width: 60%;
+    border: none;
+    margin: 10px auto;
+    cursor: pointer;
+    color: white; }
+  .shopping-card button:hover {
+    background: brown;
+    opacity: .7; }
+  .shopping-card .header-table {
+    margin-top: 10px; }
+    .shopping-card .header-table span {
+      text-align: center;
+      width: 117px; }
+  .shopping-card .items-cart {
+    margin-top: 5px; }
+    .shopping-card .items-cart span {
+      text-align: center;
+      width: 117px; }
 
 #welcome-shopping::before {
   opacity: .4;
@@ -83,24 +136,97 @@ footer {
   z-index: -2; }
 
 #welcome-shopping {
-  background: url("./assets/bg-1.jpg") no-repeat;
+  background: #D7CEC7;
   background-size: cover;
   background-position: center;
-  padding: 50px 0; }
+  padding: 50px 0;
+  height: 600px; }
   #welcome-shopping .welcome {
-    margin-left: 50px; }
+    margin: 30px auto; }
     #welcome-shopping .welcome h4 {
       font-size: 35px;
-      max-width: 470px;
-      color: white; }
-      #welcome-shopping .welcome h4 p {
-        font-size: 20px;
-        max-width: 470px;
-        font-family: 'Rubik', sans-serif;
-        color: white; }
+      color: var(--dark-texter);
+      text-align: center; }
+    #welcome-shopping .welcome p {
+      margin-top: 15px;
+      font-size: 20px;
+      font-family: 'Rubik', sans-serif;
+      text-align: center; }
+      #welcome-shopping .welcome p span {
+        color: brown;
+        font-weight: bold; }
+  #welcome-shopping .wrap-items {
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto; }
+    #welcome-shopping .wrap-items .single-item {
+      width: 33.333%;
+      margin: 10px 15px 40px;
+      font-family: 'Rubik', sans-serif;
+      text-align: left; }
+      #welcome-shopping .wrap-items .single-item h4 {
+        margin-top: 10px; }
+      #welcome-shopping .wrap-items .single-item p {
+        margin-top: 10px;
+        line-height: 1.3; }
+      #welcome-shopping .wrap-items .single-item img {
+        margin-top: 30px;
+        height: 200px;
+        width: auto;
+        border-radius: 20px; }
+      #welcome-shopping .wrap-items .single-item button {
+        margin-top: 30px;
+        background: #4eb14e;
+        border-radius: 21px;
+        height: 35px;
+        border: none;
+        color: white;
+        cursor: pointer; }
+      #welcome-shopping .wrap-items .single-item button:hover {
+        background: brown;
+        opacity: .7; }
   #welcome-shopping img {
     width: 150px;
     height: auto; }
+
+#contact-me h3 {
+  margin: 35px auto 10px;
+  font-family: 'Fjalla One', sans-serif;
+  color: var(--dark-texter);
+  font-size: 30px; }
+#contact-me .line-below {
+  height: 1px;
+  width: 75px;
+  margin: 0 auto;
+  background: var(--dark-texter); }
+#contact-me form {
+  margin-top: 20px; }
+  #contact-me form input,
+  #contact-me form textarea {
+    width: 400px;
+    margin: 20px auto 0;
+    border-radius: 15px;
+    border: 1px solid #accbee;
+    text-indent: 10px; }
+  #contact-me form input {
+    height: 30px; }
+  #contact-me form textarea {
+    min-width: 400px;
+    max-width: 400px;
+    height: 150px;
+    max-height: 150px;
+    min-height: 150px; }
+  #contact-me form button {
+    width: 250px;
+    height: 30px;
+    margin: 20px auto;
+    background: #e7f0fd;
+    border: none;
+    border-radius: 20px; }
+  #contact-me form button:hover {
+    cursor: pointer;
+    background: var(--dark-texter);
+    color: white; }
 
 #container-all-team-3 {
   text-align: center; }
@@ -123,5 +249,47 @@ footer {
     height: 60px;
     color: white;
     border: none; }
+
+#changeCart {
+  width: 700px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-template-rows: auto;
+  text-align: center; }
+  #changeCart .delete {
+    background: lightsalmon;
+    color: white;
+    cursor: pointer;
+    height: 25px;
+    border-radius: 21px;
+    border: none;
+    text-decoration: none;
+    font-size: 16px; }
+  #changeCart input {
+    height: 25px;
+    border-radius: 21px;
+    border: none; }
+
+.submit-form {
+  background: #4eb14e;
+  color: white;
+  cursor: pointer;
+  height: 25px;
+  border-radius: 21px;
+  border: none;
+  width: 300px;
+  margin: 20px auto; }
+
+#get-address {
+  margin: 20px auto; }
+  #get-address input {
+    height: 25px;
+    border-radius: 21px;
+    border: none;
+    width: 300px;
+    text-indent: 5px;
+    margin: 10px 5px; }
 
 /*# sourceMappingURL=style.css.map */
