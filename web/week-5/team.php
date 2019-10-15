@@ -17,15 +17,10 @@
     $result = $db->prepare($sql);
     echo("asfasfasf");
     $result->execute();
-    if ($result->num_rows > 0) {
         // output data of each row
         echo("cheguei");
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "id: " . $row["id"]. " - Name: " . $row["book"]. " " . $row["chapter"]. "<br>";
-        }
-    } else {
-        echo "0 results";
-    }
     $conn->close();
     ?>
 </head>
