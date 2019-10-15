@@ -16,7 +16,7 @@ $db = get_db();
     echo "HERE!!!1";
     $rs = pg_query($db, $sql) or die("Cannot execute query: $sql\n");
     echo "HERE!!!2";
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+    while ($row = $rs->fetch(PDO::FETCH_ASSOC))
     {
         // The variable "row" now holds the complete record for that
         // row, and we can access the different values based on their
