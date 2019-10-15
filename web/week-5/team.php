@@ -12,13 +12,12 @@
     
     $db = get_db();
  
-    $sql = 'SELECT * FROM "scripture"';
+    $sql = "SELECT * FROM scripture";
     echo "HERE!!!1";
     $rs = pg_query($db, $sql) or die("Cannot execute query: $sql\n");
     echo "HERE!!!2";
     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     {
-        echo "HERE!!!3";
         // The variable "row" now holds the complete record for that
         // row, and we can access the different values based on their
         // name
