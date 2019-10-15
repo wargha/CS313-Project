@@ -10,7 +10,7 @@
     // echo "HERE!!!";
     // require "database.php";
     
-    // $db = get_db();
+    $db = get_db();
     // echo "HERE!!!";
     // $sql = "SELECT id, book, chapter, verse, content FROM public.scripture";
     
