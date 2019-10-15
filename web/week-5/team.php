@@ -14,14 +14,22 @@
     echo "HERE!!!";
     $sql = "SELECT id, book, chapter, verse, content FROM scriptures";
     
-    $result = $db->prepare($sql);
-    echo("asfasfasf");
-    $result->execute();
-        // output data of each row
-        echo("cheguei");
-        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            echo "id: " . $row["id"]. " - Name: " . $row["book"]. " " . $row["chapter"]. "<br>";
-        }
+    $rs = pg_query($db, $sql) or die("Cannot execute query: $sql\n");
+
+    while ($row = pg_fetch_row($rs)) {
+      echo "$row[0] $row[1] $row[2]\n";
+    }
+    
+    pg_close($db); 
+
+    // $result = $db->prepare($sql);
+    // echo("asfasfasf");
+    // $result->execute();
+    //     // output data of each row
+    //     echo("cheguei");
+    //     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    //         echo "id: " . $row["id"]. " - Name: " . $row["book"]. " " . $row["chapter"]. "<br>";
+    //     }
     ?>
 </head>
 <body>
