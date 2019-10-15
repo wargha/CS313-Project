@@ -1,3 +1,7 @@
+<?php
+require "dbConnect.php";
+$db = get_db();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +12,6 @@
     <h3>Scriptures Resources</h3>
     <?php 
     // echo "HERE!!!";
-    require "database.php";
-    
-    $db = get_db();
  
     $sql = "SELECT * FROM scripture";
     echo "HERE!!!1";
