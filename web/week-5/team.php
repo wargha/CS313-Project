@@ -1,5 +1,5 @@
 <?php
-require "dbConnect.php";
+require "database.php";
 $db = get_db();
 ?>
 <html lang="en">
