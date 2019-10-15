@@ -21,7 +21,7 @@
         echo("cheguei");
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "id: " . $row["id"]. " - Name: " . $row["book"]. " " . $row["chapter"]. "<br>";
-    $conn->close();
+        }
     ?>
 </head>
 <body>
