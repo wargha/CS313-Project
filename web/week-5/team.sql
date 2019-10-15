@@ -1,20 +1,6 @@
-CREATE TABLE scripture (
-    id SERIAL PRIMARY KEY NOT NULL,
-    book VARCHAR(20) NOT NULL,
-    chapter INT NOT NULL,
-    verse INT NOT NULL,
-    content VARCHAR(300) NOT NULL
-);
+CREATE TABLE test(id SERIAL PRIMARY KEY NOT NULL,book VARCHAR(20) NOT NULL,chapter INT NOT NULL,verse INT NOT NULL,content VARCHAR(300) NOT NULL);
 
-INSERT INTO
-    scripture (book, chapter, verse, content)
-VALUES
-    (
-        'John',
-        1,
-        5,
-        'And the light shineth in darkness; and the darkness comprehended it not.'
-    );
+INSERT INTO test (book, chapter, verse, content) VALUES('John',1,5,'And the light shineth in darkness; and the darkness comprehended it not.');
 
 INSERT INTO
     scripture (book, chapter, verse, content)
