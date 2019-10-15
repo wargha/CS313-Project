@@ -13,7 +13,7 @@ $db = get_db();
     // echo "HERE!!!";
  
     echo "HERE!!!1";
-    $rs = pg_query($db, "SELECT * FROM SCRIPTURE") or die("Cannot execute query: \n");
+    $rs = pg_query(pg_connect($db), "SELECT * FROM SCRIPTURE") or die("Cannot execute query: \n");
     echo "HERE!!!2";
     while ($row = $rs->fetch(PDO::FETCH_ASSOC))
     {
