@@ -8,10 +8,10 @@
     <h3>Scriptures Resources</h3>
     <?php 
     require "database.php";
-    $db = get_db();
+    $dbTest = get_db();
     $sql = "SELECT id, book, chapter, verse, content FROM scriptures";
     echo "HERE!!!";
-    $result = pg_query($db, $sql);
+    $result = pg_query($dbTest, $sql);
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
