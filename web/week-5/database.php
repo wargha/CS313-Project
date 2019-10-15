@@ -3,8 +3,7 @@
 function get_db() {
 try
 {
-  $dbUrl = "postgres://blvpnjosnnmkyf:75053431fc7d7c56566c7f68602aa8895086c18a6cf5cdec23708827b3e8def5@ec2-54-83-201-84.compute-1.amazonaws.com:5432/db913sbg1ts4r2
-  ";
+  $dbUrl = "postgres://blvpnjosnnmkyf:75053431fc7d7c56566c7f68602aa8895086c18a6cf5cdec23708827b3e8def5@ec2-54-83-201-84.compute-1.amazonaws.com:5432/db913sbg1ts4r2";
 
   $dbOpts = parse_url($dbUrl);
 
