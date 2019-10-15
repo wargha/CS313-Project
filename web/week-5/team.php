@@ -9,15 +9,16 @@
     <?php 
     echo "HERE!!!";
     require "database.php";
-    echo "HERE!!!";
+    
     $db = get_db();
+    echo "HERE!!!";
     $sql = "SELECT id, book, chapter, verse, content FROM scriptures";
     
     $result = $db->prepare($sql);
     $result->execute();
     if ($result->num_rows > 0) {
         // output data of each row
-        while($row = $result->fetch_assoc()) {
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "id: " . $row["id"]. " - Name: " . $row["book"]. " " . $row["chapter"]. "<br>";
         }
     } else {
