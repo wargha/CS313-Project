@@ -12,7 +12,7 @@ $db = get_db();
     <?php 
     // echo "HERE!!!";
  
-    $sql = "SELECT * FROM TEST";
+    $sql = "SELECT * FROM SCRIPTURE";
     echo "HERE!!!1";
     $rs = pg_query($db, $sql) or die("Cannot execute query: $sql\n");
     echo "HERE!!!2";
