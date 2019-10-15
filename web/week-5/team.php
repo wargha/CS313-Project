@@ -12,7 +12,7 @@
     
     $db = get_db();
  
-    $sql = "SELECT * FROM allergy";
+    $sql = 'SELECT * FROM "scripture"';
     echo "HERE!!!1";
     $rs = pg_query($db, $sql) or die("Cannot execute query: $sql\n");
     echo "HERE!!!2";
