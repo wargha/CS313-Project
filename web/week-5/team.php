@@ -9,10 +9,11 @@
     <?php 
     echo "HERE!!!";
     require "database.php";
-    $dbTest = get_db();
+    $db = get_db();
     $sql = "SELECT id, book, chapter, verse, content FROM scriptures";
     
-    $result = pg_query($dbTest, $sql);
+    $result = $db->prepare($sql);
+    $result->execute();
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
