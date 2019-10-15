@@ -9,6 +9,17 @@
     <?php 
     require "database.php";
     $db = get_db();
+    $sql = "SELECT id, book, chapter, verse, content FROM scriptures";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "id: " . $row["id"]. " - Name: " . $row["book"]. " " . $row["chapter"]. "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
     ?>
 </head>
 <body>
