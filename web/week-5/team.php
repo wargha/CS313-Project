@@ -10,6 +10,7 @@
     require "database.php";
     $db = get_db();
     $sql = "SELECT id, book, chapter, verse, content FROM scriptures";
+    echo "HERE!!!";
     $result = pg_query($db, $sql);
     if ($result->num_rows > 0) {
         // output data of each row
