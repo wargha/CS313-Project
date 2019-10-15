@@ -12,7 +12,7 @@
     
     $db = get_db();
     echo "HERE!!!";
-    $sql = "SELECT id, book, chapter, verse, content FROM scripture";
+    $sql = "SELECT id, book, chapter, verse, content FROM public.scripture";
     
     $rs = pg_query($db, $sql) or die("Cannot execute query: $sql\n");
 
