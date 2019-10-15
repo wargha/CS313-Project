@@ -9,6 +9,7 @@
     <?php 
     echo "HERE!!!";
     require "database.php";
+    echo "HERE!!!";
     $db = get_db();
     $sql = "SELECT id, book, chapter, verse, content FROM scriptures";
     
