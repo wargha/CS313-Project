@@ -11,25 +11,17 @@
     // require "database.php";
     
     $db = get_db();
-    // echo "HERE!!!";
-    // $sql = "SELECT id, book, chapter, verse, content FROM public.scripture";
+    echo "HERE!!!";
+    $sql = "SELECT * FROM scripture";
     
-    // $rs = pg_query($db, $sql) or die("Cannot execute query: $sql\n");
+    $rs = pg_query($db, $sql) or die("Cannot execute query: $sql\n");
 
-    // while ($row = pg_fetch_row($rs)) {
-    //   echo "$row[0] $row[1] $row[2]\n";
-    // }
+    while ($row = pg_fetch_row($rs)) {
+      echo "$row[0] $row[1] $row[2]\n";
+    }
     
-    // pg_close($db); 
-    $sql = "SELECT id, book, chapter, verse, content FROM scripture";
-    $result = $db->prepare($sql);
-    echo("asfasfasf");
-    $result->execute();
-        // output data of each row
-        echo("cheguei");
-        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            echo "id: " . $row["id"]. " - Name: " . $row["book"]. " " . $row["chapter"]. "<br>";
-        }
+    pg_close($db); 
+    
     ?>
 </head>
 <body>
