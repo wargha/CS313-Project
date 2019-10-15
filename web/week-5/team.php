@@ -8,7 +8,7 @@
     <h3>Scriptures Resources</h3>
     <?php 
     // echo "HERE!!!";
-    // require "database.php";
+    require "database.php";
     
     $db = get_db();
     echo "HERE!!!";
