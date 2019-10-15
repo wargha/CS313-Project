@@ -11,23 +11,13 @@ $db = get_db();
     <h3>Scriptures Resources</h3>
     <?php 
     // echo "HERE!!!";
- 
-    echo "HERE!!!1";
-    $rs = pg_query(pg_connect($db), "SELECT * FROM SCRIPTURE") or die("Cannot execute query: \n");
-    echo "HERE!!!2";
-    while ($row = $rs->fetch(PDO::FETCH_ASSOC))
+
+    foreach ($db->query('SELECT * FROM scripture') as $row)
     {
-        // The variable "row" now holds the complete record for that
-        // row, and we can access the different values based on their
-        // name
-        $book = $row['book'];
-        $chapter = $row['chapter'];
-        $verse = $row['verse'];
-        $content = $row['content'];
-        echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
+      echo 'user: ' . $row['verse'];
+      echo ' password: ' . $row['chapter'];
+      echo '<br/>';
     }
-    
-    pg_close($db); 
     
     ?>
 </head>
