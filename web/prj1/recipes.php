@@ -1,10 +1,9 @@
 <!DOCTYPE html>
+<html lang="en">
 <?php
 require "databaseLoader.php";
 $db = get_db();
 ?>
-<html lang="en">
-
 <head>
 
   <meta charset="utf-8">
@@ -13,9 +12,7 @@ $db = get_db();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>A+llergy Dashboard</title>
-
-
+  <title>SB Admin - Tables</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,22 +22,33 @@ $db = get_db();
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body id="page-top">
 
-
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">A+llergy </a>
+    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
 
-    <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
+    <!-- Navbar Search -->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0">
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-bell fa-fw"></i>
@@ -84,26 +92,37 @@ $db = get_db();
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-edit"></i>
-          <span>Edit Profile</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Pages</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Login Screens:</h6>
+          <a class="dropdown-item" href="login.html">Login</a>
+          <a class="dropdown-item" href="register.html">Register</a>
+          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Other Pages:</h6>
+          <a class="dropdown-item" href="404.html">404 Page</a>
+          <a class="dropdown-item" href="blank.html">Blank Page</a>
+        </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="recipes.php">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Charts</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
-          <span>Recipe Database</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-utensils"></i>
-          <span>Find Restaurants</span></a>
+          <span>Tables</span></a>
       </li>
     </ul>
 
@@ -116,78 +135,9 @@ $db = get_db();
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Current Allergies</li>
+          <li class="breadcrumb-item active">Recipe Database</li>
         </ol>
 
-        <!-- Icon Cards-->
-        <div class="row">
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-comments"></i>
-                </div>
-                <div class="mr-5">Deals Inbox</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-list"></i>
-                </div>
-                <div class="mr-5">Recipe of the day</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">Restaurant of the day</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-life-ring"></i>
-                </div>
-                <div class="mr-5">Allergy Safeguards</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Area Chart Example-->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
@@ -196,23 +146,34 @@ $db = get_db();
           <?php
           // echo "HERE!!!";
 
-          foreach ($db->query('-- Select allergies from one user
-  SELECT
-      u.id,
-      u.name,
-      a.id,
-      a.name
-  FROM
-      APP_USER u
-      JOIN USER_ALLERGY ua ON ua.user_id = u.id
-      JOIN ALLERGY a ON ua.allergy_id = a.id
-  WHERE u.id = 1
-  ORDER BY
-      u.name;') as $row) {
+          foreach ($db->query('
+          SELECT
+          u.name,
+          a.name,
+          r.title
+      FROM
+          APP_USER u
+          JOIN 
+          USER_ALLERGY ua 
+          ON ua.user_id = u.id
+          JOIN 
+          ALLERGY a 
+          ON 
+          ua.allergy_id = a.id
+          JOIN 
+          RECIPE_ALLERGY ra 
+          ON 
+          ra.allergy_id = a.id
+          JOIN RECIPE r 
+          ON
+          ra.recipe_id = r.id
+      WHERE
+          u.id = 1
+      ') as $row) {
 
             echo'
           <div class="d-flex flex-column ml-2">
-            <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+            <h5 class="card-title text-center">'. ucfirst($row['title']) . '</h5>
             <a href="#" class="btn btn-primary btn-md ">See Description</a>
           </div>';
           }
@@ -221,20 +182,9 @@ $db = get_db();
           </div>
         </div>
 
-        <!-- DataTables Example -->
-   
-        <?php 
-        date_default_timezone_set('America/Denver');
-        $date = date('m/d/Y h:i:s a', time());
-        ?>
-          <div class="card-footer small text-muted">Last Updated on
-            <?php
-            echo $date;
-            ?>
-          </div>
-        </div>
-
       </div>
+
+      
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -284,7 +234,6 @@ $db = get_db();
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="vendor/datatables/jquery.dataTables.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
@@ -293,7 +242,6 @@ $db = get_db();
 
   <!-- Demo scripts for this page-->
   <script src="js/demo/datatables-demo.js"></script>
-  <script src="js/demo/chart-area-demo.js"></script>
 
 </body>
 
