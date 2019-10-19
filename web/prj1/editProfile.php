@@ -31,8 +31,54 @@
 
 <body id="page-top">
 
-  <?php require_once('navTop.php') ?>
 
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">A+llergy </a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger">9+</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-envelope fa-fw"></i>
+          <span class="badge badge-danger">7</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="#">Activity Log</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
 
   <div id="wrapper">
 
@@ -75,10 +121,10 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-list"></i>
                 </div>
-                <div class="mr-5">Your Recipe of the day</div>
+                <div class="mr-5">Recipe of the day</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#" data-toggle="modal" data-target="#modal-recipe-day">
-                <span class="float-left">Click to See!</span>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
                 </span>
@@ -93,8 +139,8 @@
                 </div>
                 <div class="mr-5">Restaurant of the day</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#" data-toggle="modal" data-target="#modal-restaurant-day">
-                <span class="float-left">Click to See!</span>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
                 </span>
@@ -119,128 +165,66 @@
           </div>
         </div>
 
-
         <!-- Area Chart Example-->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
             Your Allergies</div>
-          <div class="card-body d-flex flex-row justify-content-around">
-            <?php
+            <div class="card-body d-flex flex-row justify-content-around">
+          <?php
 
-            //         foreach ($db->query('-- Select allergies from one user
-            // SELECT
-            //     u.id,
-            //     u.name,
-            //     a.id,
-            //     a.name
-            // FROM
-            //     APP_USER u
-            //     JOIN USER_ALLERGY ua ON ua.user_id = u.id
-            //     JOIN ALLERGY a ON ua.allergy_id = a.id
-            // WHERE u.id = 1
-            // ORDER BY
-            //     u.name;') as $row) {
+  //         foreach ($db->query('-- Select allergies from one user
+  // SELECT
+  //     u.id,
+  //     u.name,
+  //     a.id,
+  //     a.name
+  // FROM
+  //     APP_USER u
+  //     JOIN USER_ALLERGY ua ON ua.user_id = u.id
+  //     JOIN ALLERGY a ON ua.allergy_id = a.id
+  // WHERE u.id = 1
+  // ORDER BY
+  //     u.name;') as $row) {
 
-            //           echo'
-            //         <div class="d-flex flex-column ml-2">
-            //           <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
-            //           <a href="#" class="btn btn-primary btn-md ">See Description</a>
-            //         </div>';
-            //         }
-            ?>
+  //           echo'
+  //         <div class="d-flex flex-column ml-2">
+  //           <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+  //           <a href="#" class="btn btn-primary btn-md ">See Description</a>
+  //         </div>';
+  //         }
+       ?>
 
           </div>
         </div>
 
         <!-- DataTables Example -->
-
-        <?php
+   
+        <?php 
         date_default_timezone_set('America/Denver');
         $date = date('m/d/Y h:i:s a', time());
         ?>
-        <div class="card-footer small text-muted">Last Updated on
-          <?php
-          echo $date;
-          ?>
-        </div>
-
-        <div class="modal fade" id="modal-recipe-day" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Dairy Free Bread</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p> 'In a large mixing bowl or the bowl of a standing mixer with a hook attachment, combine 2 cups of warm almond milk, 1/4 cup sugar, and 1 1/2 tablespoons yeast, stirring gently to dissolve. Let the mixture rest for 5 to 10 minutes, or until foamy (showing the yeast is active).
-
-
-                  Meanwhile, in a medium-large mixing bowl, combine 6 cups flour and 1 1/2 teaspoons salt.
-
-                  Add 1/4 cup oil to the yeast mixture. Gradually add the flour, about one cup at a time.
-
-                  Turn the dough out onto a lightly floured surface and knead it until the dough is elastic and firm.
-
-                  Place the dough in a lightly oiled bowl, cover the bowl with plastic wrap, and put it in a warm place for 1 hour, or until the dough is doubled in bulk.
-
-                  Preheat the oven to 350 F. Oil two 9x5 inch loaf pans.
-
-                  Punch down the dough, and turn out onto a dry surface, kneading the dough for 3 to 4 minutes. Divide the dough in half, shape each half into a loaf, and place them in the prepared loaf pans. Let the loaves rise in a warm place for 30 to 40 minutes more, or until the loaves have risen above the edges of the pans.
-
-                  Bake for 30 minutes or until golden brown.
-
-                  Remove the loaves from the oven and allow them to cool slightly in the pans before slicing and serving.'</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-
-
-            </div>
+          <div class="card-footer small text-muted">Last Updated on
+            <?php
+            echo $date;
+            ?>
           </div>
         </div>
 
-
-
-        <div class="modal fade" id="modal-restaurant-day" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">IHOP </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p> Today IHOP will be offering dairy free pancakes for free with the purchase of a meal!</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-
-
-            </div>
-          </div>
-        </div>
       </div>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © Lucas Wargha 2019</span>
+          </div>
+        </div>
+      </footer>
 
     </div>
-    <!-- /.container-fluid -->
-
-    <!-- Sticky Footer -->
-    <footer class="sticky-footer">
-      <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-          <span>Copyright © Lucas Wargha 2019</span>
-        </div>
-      </div>
-    </footer>
-
-  </div>
-  <!-- /.content-wrapper -->
+    <!-- /.content-wrapper -->
 
   </div>
   <!-- /#wrapper -->

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-require "databaseLoader.php";
-$db = get_db();
-?>
+
 <head>
 
   <meta charset="utf-8">
@@ -12,8 +9,7 @@ $db = get_db();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Tables</title>
-
+  <title>A+llergy Dashboard</title>
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -22,35 +18,13 @@ $db = get_db();
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body id="page-top">
 
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
-    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
-
-    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Navbar -->
-    <?php require_once('navTop.php') ?>
-
-  </nav>
+<?php require_once('navTop.php') ?>
 
   <div id="wrapper">
 
@@ -66,55 +40,13 @@ $db = get_db();
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Recipe Database</li>
+          <li class="breadcrumb-item active">Allergy Safeguards</li>
         </ol>
 
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-chart-area"></i>
-            Your Allergies</div>
-            <div class="card-body d-flex flex-row justify-content-around">
-          <?php
-          // echo "HERE!!!";
-
-          foreach ($db->query('
-          SELECT
-          u.name,
-          a.name,
-          r.title
-      FROM
-          APP_USER u
-          JOIN 
-          USER_ALLERGY ua 
-          ON ua.user_id = u.id
-          JOIN 
-          ALLERGY a 
-          ON 
-          ua.allergy_id = a.id
-          JOIN 
-          RECIPE_ALLERGY ra 
-          ON 
-          ra.allergy_id = a.id
-          JOIN RECIPE r 
-          ON
-          ra.recipe_id = r.id
-      WHERE
-          u.id = 1
-      ') as $row) {
-
-            echo'
-          <div class="d-flex flex-column ml-2">
-            <h5 class="card-title text-center">'. ucfirst($row['title']) . '</h5>
-            <a href="#" class="btn btn-primary btn-md ">See Description</a>
-          </div>';
-          }
-       ?>
-
-          </div>
-        </div>
+        <!-- Icon Cards-->
+        
 
       </div>
-      
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -125,7 +57,24 @@ $db = get_db();
           </div>
         </div>
       </footer>
+      <h5 class="text-center">Allergy Safeguards</h5>
 
+<p class="mt-4 mb-4 ml-5 mr-5">Sweet Relief
+A range of different medications may be recommended by your physician to treat your seasonal allergies. Specifically, he or she may recommend:
+
+Decongestant medications that may be taken orally, like pseudoephedrine, offer temporary relief of symptoms. Decongestant sprays like oxymetazoline can also provide a quick fix, but they may actually worsen symptoms when taken for long periods of time, so use sparingly.
+Nasal sprays made with cromolyn sodium relieve symptoms such as itching and sneezing with minimal side effects but are only effective if taken prior to encountering a known allergen.
+Oral antihistamines alleviate itching, runny nose, sneezing, and watery eyes.
+Steroids ease inflammation associated with allergies and may be taken orally or through a nasal spray. While steroids are very safe and effective, they should be used under the supervision of your physician. They also are not recommended for people with glaucoma.
+All in the Family
+If your parents have a history of allergies, you are more likely to suffer from similar conditions. So if you or your child are experiencing long-lasting symptoms that seem like a cold that just won’t quit, schedule an appointment with your DMC Medical Group physician. In the meantime, improve quality of life through these simple steps:
+
+Keep doors and windows closed.
+Take showers after spending time outdoors.
+Wash clothes you have worn outside.
+Wear a dust mask when doing work outside like mowing the lawn or planting flowers.
+“Allergies can make us miserable if we aren’t prepared,” Dr. Stern says. “But you can take control and enjoy your summer by making the right choices.”
+</p>
     </div>
     <!-- /.content-wrapper -->
 
@@ -164,6 +113,7 @@ $db = get_db();
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
+  <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="vendor/datatables/jquery.dataTables.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
@@ -172,6 +122,7 @@ $db = get_db();
 
   <!-- Demo scripts for this page-->
   <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
 
 </body>
 
