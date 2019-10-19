@@ -83,29 +83,7 @@ $db = get_db();
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="sidebar navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-edit"></i>
-          <span>Edit Profile</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="recipes.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Recipe Database</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-utensils"></i>
-          <span>Find Restaurants</span></a>
-      </li>
-    </ul>
+    <?php require_once('sidebar.php') ?>
 
     <div id="content-wrapper">
 
@@ -194,7 +172,7 @@ $db = get_db();
             Your Allergies</div>
             <div class="card-body d-flex flex-row justify-content-around">
           <?php
-          // echo "HERE!!!";
+          echo "HERE!!!";
 
           foreach ($db->query('-- Select allergies from one user
   SELECT
