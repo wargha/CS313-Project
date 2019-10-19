@@ -29,17 +29,16 @@ $db = get_db();
 </head>
 
 <body id="page-top">
-<?php 
-    // echo "HERE!!!";
+  <?php
+  // echo "HERE!!!";
 
-    foreach ($db->query('SELECT * FROM USER_APP') as $row)
-    {
-      echo 'user: ' . $row['id'];
-      echo ' password: ' . $row['password'];
-      echo '<br/>';
-    }
-    
-    ?>
+  foreach ($db->query('SELECT * FROM APP_USER') as $row) {
+    echo 'user: ' . $row['id'];
+    echo ' password: ' . $row['pw'];
+    echo '<br/>';
+  }
+
+  ?>
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
