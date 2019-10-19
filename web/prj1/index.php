@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require "database.php";
+require "databaseLoader.php";
 $db = get_db();
 ?>
 <html lang="en">
