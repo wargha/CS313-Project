@@ -13,7 +13,7 @@ $db = get_db();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Allergen Dashboardl</title>
+  <title>A+llergy Dashboard</title>
 
 
 
@@ -25,43 +25,22 @@ $db = get_db();
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body id="page-top">
-  <?php
-  // echo "HERE!!!";
 
-  foreach ($db->query('SELECT * FROM APP_USER') as $row) {
-    echo 'user: ' . $row['id'];
-    echo ' password: ' . $row['pw'];
-    echo '<br/>';
-  }
-
-  ?>
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand mr-1" href="index.html">A+llergy </a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0">
+    <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-bell fa-fw"></i>
@@ -111,31 +90,20 @@ $db = get_db();
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="login.html">Login</a>
-          <a class="dropdown-item" href="register.html">Register</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Other Pages:</h6>
-          <a class="dropdown-item" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
-        </div>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <i class="fas fa-fw fa-edit"></i>
+          <span>Edit Profile</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Recipe Database</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-utensils"></i>
+          <span>Find Restaurants</span></a>
       </li>
     </ul>
 
@@ -148,7 +116,7 @@ $db = get_db();
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Overview</li>
+          <li class="breadcrumb-item active">Current Allergies</li>
         </ol>
 
         <!-- Icon Cards-->
@@ -159,7 +127,7 @@ $db = get_db();
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-comments"></i>
                 </div>
-                <div class="mr-5">26 New Messages!</div>
+                <div class="mr-5">Deals Inbox</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
@@ -175,7 +143,7 @@ $db = get_db();
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-list"></i>
                 </div>
-                <div class="mr-5">11 New Tasks!</div>
+                <div class="mr-5">Recipe of the day</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
@@ -191,7 +159,7 @@ $db = get_db();
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-shopping-cart"></i>
                 </div>
-                <div class="mr-5">123 New Orders!</div>
+                <div class="mr-5">Restaurant of the day</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
@@ -207,7 +175,7 @@ $db = get_db();
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-life-ring"></i>
                 </div>
-                <div class="mr-5">13 New Tickets!</div>
+                <div class="mr-5">Allergy Safeguards</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
@@ -223,11 +191,43 @@ $db = get_db();
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
-            Area Chart Example</div>
-          <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            Your Allergies</div>
+            <div class="card-body d-flex flex-row justify-content-around">
+          <?php
+          // echo "HERE!!!";
+
+          foreach ($db->query('-- Select allergies from one user
+  SELECT
+      u.id,
+      u.name,
+      a.id,
+      a.name
+  FROM
+      APP_USER u
+      JOIN USER_ALLERGY ua ON ua.user_id = u.id
+      JOIN ALLERGY a ON ua.allergy_id = a.id
+  WHERE u.id = 1
+  ORDER BY
+      u.name;') as $row) {
+            echo ` <div class="d-flex flex-column ml-2">
+            <h5 class="card-title text-center">Dairy</h5>
+            <a href="#" class="btn btn-primary btn-md ">Allergy Description</a>
+          </div>`;
+          }
+
+          ?>
+        
+           
+            <div class="d-flex flex-column ml-2">
+              <h5 class="card-title text-center">Peanuts</h5>
+              <a href="#" class="btn btn-primary btn-md ">Allergy Description</a>
+            </div>
+            <div class="d-flex flex-column ml-2">
+              <h5 class="card-title text-center">Soy</h5>
+              <a href="#" class="btn btn-primary btn-md ">Allergy Description</a>
+            </div>
+
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
         <!-- DataTables Example -->
