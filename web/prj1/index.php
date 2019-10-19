@@ -209,7 +209,9 @@ $db = get_db();
   WHERE u.id = 1
   ORDER BY
       u.name;') as $row) {
-            echo ` <div class="d-flex flex-column ml-2">
+        echo 1;
+            echo `
+          <div class="d-flex flex-column ml-2">
             <h5 class="card-title text-center">Dairy</h5>
             <a href="#" class="btn btn-primary btn-md ">Allergy Description</a>
           </div>`;
@@ -218,14 +220,14 @@ $db = get_db();
           ?>
         
            
-            <div class="d-flex flex-column ml-2">
+            <!-- <div class="d-flex flex-column ml-2">
               <h5 class="card-title text-center">Peanuts</h5>
               <a href="#" class="btn btn-primary btn-md ">Allergy Description</a>
             </div>
             <div class="d-flex flex-column ml-2">
               <h5 class="card-title text-center">Soy</h5>
               <a href="#" class="btn btn-primary btn-md ">Allergy Description</a>
-            </div>
+            </div> -->
 
           </div>
         </div>
