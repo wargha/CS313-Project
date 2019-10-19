@@ -212,8 +212,8 @@ $db = get_db();
 
             echo'
           <div class="d-flex flex-column ml-2">
-            <h5 class="card-title text-center">'. $row['name'] . '</h5>
-            <a href="#" class="btn btn-primary btn-md ">Description</a>
+            <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+            <a href="#" class="btn btn-primary btn-md ">See Description</a>
           </div>';
           }
           ?>
