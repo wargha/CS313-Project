@@ -209,13 +209,14 @@ $db = get_db();
   WHERE u.id = 1
   ORDER BY
       u.name;') as $row) {
+
             echo'
           <div class="d-flex flex-column ml-2">
             <h5 class="card-title text-center"></h5>
-            <a href="#" class="btn btn-primary btn-md "> ' . $row['a.name'] . 'Description</a>
+            <a href="#" class="btn btn-primary btn-md "> ' . $row['name'] . 'Description</a>
           </div>';
           }
-
+          print_r ($row);
           ?>
         
            
