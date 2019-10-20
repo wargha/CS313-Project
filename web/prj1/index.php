@@ -1,7 +1,39 @@
 <!DOCTYPE html>
 <?php
-// require "databaseLoader.php";
-// $db = get_db();
+require "databaseLoader.php";
+$db = get_db();
+
+$recipe_day_title = '';
+$recipe_day_description = '';
+
+foreach ($db->query('
+SELECT
+u.name,
+a.name,
+r.title,
+r.descr
+FROM
+APP_USER u
+JOIN 
+USER_ALLERGY ua 
+ON ua.user_id = u.id
+JOIN 
+ALLERGY a 
+ON 
+ua.allergy_id = a.id
+JOIN 
+RECIPE_ALLERGY ra 
+ON 
+ra.allergy_id = a.id
+JOIN RECIPE r 
+ON
+ra.recipe_id = r.id
+WHERE
+u.id = 1
+') as $row) {
+$recipe_day_title = $row['title'];
+$recipe_day_description = $row['descr'];
+}
 ?>
 <html lang="en">
 
@@ -127,27 +159,27 @@
             Your Allergies</div>
           <div class="card-body d-flex flex-row justify-content-around">
             <?php
-
-            //         foreach ($db->query('-- Select allergies from one user
-            // SELECT
-            //     u.id,
-            //     u.name,
-            //     a.id,
-            //     a.name
-            // FROM
-            //     APP_USER u
-            //     JOIN USER_ALLERGY ua ON ua.user_id = u.id
-            //     JOIN ALLERGY a ON ua.allergy_id = a.id
-            // WHERE u.id = 1
-            // ORDER BY
-            //     u.name;') as $row) {
-
-            //           echo'
-            //         <div class="d-flex flex-column ml-2">
-            //           <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
-            //           <a href="#" class="btn btn-primary btn-md ">See Description</a>
-            //         </div>';
-            //         }
+          $recipe_day_title = '';
+          $recipe_day_description = '';
+                    foreach ($db->query('-- Select allergies from one user
+            SELECT
+                u.id,
+                u.name,
+                a.id,
+                a.name
+            FROM
+                APP_USER u
+                JOIN USER_ALLERGY ua ON ua.user_id = u.id
+                JOIN ALLERGY a ON ua.allergy_id = a.id
+            WHERE u.id = 1
+            ORDER BY
+                u.name;') as $row) {
+                      echo'
+                    <div class="d-flex flex-column ml-2">
+                      <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+                      <a href="#" class="btn btn-primary btn-md ">See Description</a>
+                    </div>';
+                    }
             ?>
 
           </div>
@@ -169,30 +201,21 @@
           <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Dairy Free Bread</h5>
+                <h5 class="modal-title" id="exampleModalScrollableTitle">
+
+                <?php
+  echo $recipe_day_title;
+                ?>
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <p> 'In a large mixing bowl or the bowl of a standing mixer with a hook attachment, combine 2 cups of warm almond milk, 1/4 cup sugar, and 1 1/2 tablespoons yeast, stirring gently to dissolve. Let the mixture rest for 5 to 10 minutes, or until foamy (showing the yeast is active).
-
-
-                  Meanwhile, in a medium-large mixing bowl, combine 6 cups flour and 1 1/2 teaspoons salt.
-
-                  Add 1/4 cup oil to the yeast mixture. Gradually add the flour, about one cup at a time.
-
-                  Turn the dough out onto a lightly floured surface and knead it until the dough is elastic and firm.
-
-                  Place the dough in a lightly oiled bowl, cover the bowl with plastic wrap, and put it in a warm place for 1 hour, or until the dough is doubled in bulk.
-
-                  Preheat the oven to 350 F. Oil two 9x5 inch loaf pans.
-
-                  Punch down the dough, and turn out onto a dry surface, kneading the dough for 3 to 4 minutes. Divide the dough in half, shape each half into a loaf, and place them in the prepared loaf pans. Let the loaves rise in a warm place for 30 to 40 minutes more, or until the loaves have risen above the edges of the pans.
-
-                  Bake for 30 minutes or until golden brown.
-
-                  Remove the loaves from the oven and allow them to cool slightly in the pans before slicing and serving.'</p>
+                <p> 
+                <?php
+  echo $recipe_day_description;
+                ?></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -263,7 +286,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="login.php">Logout</a>
         </div>
       </div>
     </div>
