@@ -24,7 +24,7 @@ foreach ($topic as $topicId)
 	{
 		echo "ScriptureId: $scriptureId, topicId: $topicId";
 		// Again, first prepare the statement
-		$statement = $db->prepare('INSERT INTO scripture_topic(scriptureid, topicid) VALUES(:scriptureId, :topicId)');
+		$statement = $db->prepare('INSERT INTO scripture_topic(scriptureid, topicid) VALUES(:scriptureid, :topicid)');
 		// Then, bind the values
 		$statement->bindValue(':scriptureid', $scriptureId);
 		$statement->bindValue(':topicid', $topicId);
