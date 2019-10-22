@@ -19,6 +19,7 @@ $statement->bindValue(':verse', $verse);
 $statement->bindValue(':content', $content);
 $statement->execute();
 
+$scriptureId = $db->lastInsertId("scripture_id_seq");
 foreach ($topicIds as $topicId)
 	{
 		echo "ScriptureId: $scriptureId, topicId: $topicId";
