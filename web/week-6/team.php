@@ -16,9 +16,6 @@
     <input type="number" name="" id="" placeholder="Enter scripture chapter">
     <input type="number" name="" id="" placeholder="Enter scripture verse">
     <input type="text" name="" id="" placeholder="Enter scripture content">
-    <input type="checkbox" name="" id=""> Faith
-    <input type="checkbox" name="" id=""> Charity
-    <input type="checkbox" name="" id=""> Sacrifice
 
 <?php
 foreach ($db->query('SELECT * FROM topic') as $row) {
