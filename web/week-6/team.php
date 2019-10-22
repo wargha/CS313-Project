@@ -39,7 +39,7 @@ $db = get_db();
         <?php
         echo "<div class='container'>";
         foreach ($db->query('SELECT * FROM topic') as $row) {
-            echo '<input type="checkbox" name="topic" id="">' . $row['name'];
+            echo '<input type="checkbox" name="topic[]" id="">' . $row['name'];
         }
         echo "</div>";
         ?>
