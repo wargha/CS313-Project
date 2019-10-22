@@ -31,15 +31,15 @@ $db = get_db();
 </head>
 
 <body>
-    <form class="container center col">
-        <input type="text" name="" id="" placeholder="Enter scripture Book">
-        <input type="number" name="" id="" placeholder="Enter scripture chapter">
-        <input type="number" name="" id="" placeholder="Enter scripture verse">
-        <input type="text" name="" id="" placeholder="Enter scripture content">
+    <form class="container center col" method="POST" action="team2.php">
+        <input type="text" name="book" id="" placeholder="Enter scripture Book">
+        <input type="number" name="chapter" id="" placeholder="Enter scripture chapter">
+        <input type="number" name="verse" id="" placeholder="Enter scripture verse">
+        <input type="text" name="content" id="" placeholder="Enter scripture content">
         <?php
         echo "<div class='container'>";
         foreach ($db->query('SELECT * FROM topic') as $row) {
-            echo '<input type="checkbox" name="" id="">' . $row['name'];
+            echo '<input type="checkbox" name="topic" id="">' . $row['name'];
         }
         echo "</div>";
         ?>
