@@ -20,7 +20,7 @@ $statement->bindValue(':content', $content);
 $statement->execute();
 
 $scriptureId = $db->lastInsertId("scripture_id_seq");
-foreach ($topicIds as $topicId)
+foreach ($topic as $topicId)
 	{
 		echo "ScriptureId: $scriptureId, topicId: $topicId";
 		// Again, first prepare the statement
