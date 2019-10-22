@@ -1,11 +1,11 @@
 <?php
-require "databaseLoader.php";
-$db = get_db();
+// require "databaseLoader.php";
+// $db = get_db();
 
-foreach ($db->query('
-SELECT * FROM topics') as $row) {
-echo $row['name'];
-}
+// foreach ($db->query('
+// SELECT * FROM topics') as $row) {
+// echo $row['name'];
+// }
 ?>
 
 <!DOCTYPE html>
