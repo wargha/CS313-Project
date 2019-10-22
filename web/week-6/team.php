@@ -22,7 +22,7 @@
 
 <?php
 foreach ($db->query('SELECT * FROM topic') as $row) {
-echo $row['name'];
+echo '<input type="checkbox" name="" id="">' . $row['name'];
 }
 ?>
 </body>
