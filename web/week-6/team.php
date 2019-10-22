@@ -1,11 +1,6 @@
 <?php
-// require "databaseLoader.php";
-// $db = get_db();
-
-// foreach ($db->query('
-// SELECT * FROM topics') as $row) {
-// echo $row['name'];
-// }
+    require "databaseLoader.php";
+    $db = get_db();
 ?>
 
 <!DOCTYPE html>
@@ -24,5 +19,13 @@
     <input type="checkbox" name="" id=""> Faith
     <input type="checkbox" name="" id=""> Charity
     <input type="checkbox" name="" id=""> Sacrifice
+
+<?php
+
+foreach ($db->query('
+SELECT * FROM topics') as $row) {
+echo $row['name'];
+}
+?>
 </body>
 </html>
