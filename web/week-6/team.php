@@ -21,9 +21,10 @@
     <input type="checkbox" name="" id=""> Sacrifice
 
 <?php
-
+   echo "loco";
 foreach ($db->query('
 SELECT * FROM topics') as $row) {
+    echo "1";
 echo $row['name'];
 }
 ?>
