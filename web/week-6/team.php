@@ -21,10 +21,7 @@
     <input type="checkbox" name="" id=""> Sacrifice
 
 <?php
-   echo "loco";
-foreach ($db->query('
-SELECT * FROM topics') as $row) {
-    echo "1";
+foreach ($db->query('SELECT * FROM topic') as $row) {
 echo $row['name'];
 }
 ?>
