@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require "databaseLoader.php";
+$db = get_db();
 
+
+if (!empty($_POST)) {
+  $email = $_POST['email'];
+  $pw = $_POST['password'];
+  $canLogin = false;
+
+  foreach ($db->query("SELECT * FROM app_user WHERE email = '$email'") as $row) {
+    $pw_check = $row['pw'];
+    if ($pw_check == $pw)
+    { 
+      echo "Correct login!";
+      break;
+    }
+}
+
+}
+?>
 <head>
 
   <meta charset="utf-8">
@@ -9,7 +29,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Login</title>
+  <title>AllergyPlus Login</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,16 +45,16 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+        <form action="login.php" method="POST">
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+              <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
               <label for="inputEmail">Email address</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+              <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
               <label for="inputPassword">Password</label>
             </div>
           </div>
@@ -46,7 +66,7 @@
               </label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+          <button class="btn btn-primary btn-block" href="index.html">Login</button>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">Register an Account</a>
