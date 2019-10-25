@@ -29,4 +29,27 @@ foreach ($topic as $topicId)
 		$statement->bindValue(':scriptureid', $scriptureId);
 		$statement->bindValue(':topicid', $topicId);
 		$statement->execute();
-	}
+    }
+
+    $statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scripture');
+    $statement->execute();
+
+    while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        echo '<p>';
+		echo '<strong>' . $row['book'] . ' ' . $row['chapter'] . ':';
+		echo $row['verse'] . '</strong>' . ' - ' . $row['content'];
+		echo '<br />';
+		echo 'Topics: ';
+		// get the topics now for this scripture
+		$stmtTopics = $db->prepare('SELECT name FROM topic t'
+			. ' INNER JOIN scripture_topic st ON st.topicId = t.id'
+			. ' WHERE st.scriptureId = :scriptureId');
+		$stmtTopics->bindValue(':scriptureId', $row['id']);
+		$stmtTopics->execute();
+		// Go through each topic in the result
+		while ($topicRow = $stmtTopics->fetch(PDO::FETCH_ASSOC))
+		{
+			echo $topicRow['name'] . ' ';
+		}
+		echo '</p>';
+    }

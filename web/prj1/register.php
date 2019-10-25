@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require "databaseLoader.php";
+$db = get_db();
+?>
+<?php
+if (!empty($_POST)) {
+  $email = $_POST['email'];
+  $pw = $_POST['password'];
+  $name = $_POST['name'];
+
+  $query = 'INSERT INTO app_user (name, email, pw) VALUES(:name, :email, :pw)';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':name', $name);
+  $statement->bindValue(':email', $email);
+  $statement->bindValue(':pw', $pw);
+  $statement->execute();
+  header("Location: login.php");
+}
+?>
 
 <head>
 
@@ -9,7 +28,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Register</title>
+  <title>AllerPlus Register Page</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,26 +44,16 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
       <div class="card-body">
-        <form>
+        <form method="POST" action="register.php">
           <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
-                  <label for="firstName">First name</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
-                  <label for="lastName">Last name</label>
-                </div>
-              </div>
+            <div class="form-label-group">
+              <input type="text" id="firstName" name="name" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
+              <label for="firstName">Name</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+              <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
               <label for="inputEmail">Email address</label>
             </div>
           </div>
@@ -52,7 +61,7 @@
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
                   <label for="inputPassword">Password</label>
                 </div>
               </div>
@@ -64,7 +73,7 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login.html">Register</a>
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="login.html">Login Page</a>
