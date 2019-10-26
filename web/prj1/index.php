@@ -7,8 +7,8 @@ if (isset($_COOKIE['canLogin'])) {
     header("Location: login.php");
   }
 } else { 
-  echo "aqui2";
-  echo $_COOKIE['canLogin'];
+  header("Location: login.php");
+  setcookie('canLogin', "not auth");
 }
 require "databaseLoader.php";
 $db = get_db();
