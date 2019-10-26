@@ -17,6 +17,7 @@ if (!empty($_POST)) {
       $canLogin = "correct";
       setcookie("canLogin", true, time()+36000);
       setcookie("user_id", $row['id'], time()+36000); //10 hours
+      header("Location: index.php");
       break;
     } else { 
       $canLogin = "Not Authorized";
@@ -70,9 +71,7 @@ if (!empty($_POST)) {
   } else if ($canLogin = 'correct') { 
    
     echo "<p style='color: green'>Login successful! Redirecting you to the main page. </p>";
-    sleep(3);
-    flush();
-    header("Location: index.php");
+   
   }
         ?>
         <div class="text-center">
