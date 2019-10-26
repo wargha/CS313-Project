@@ -175,7 +175,6 @@ u.id = 1
                       <a href="#" class="btn btn-primary btn-md ">See Description</a>
                     </div>';
                     $count++;
-                    echo $count;
             }
             if ($count == 0) { 
               echo $count;
@@ -186,7 +185,6 @@ u.id = 1
               </div>';
             }
 
-            echo $count . " here";
             ?>
 
           </div>
