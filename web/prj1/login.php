@@ -4,10 +4,11 @@
 require "databaseLoader.php";
 $db = get_db();
 
-
+$canLogin = "Not Set";
 if (!empty($_POST)) {
   $email = $_POST['email'];
   $pw = $_POST['password'];
+
 
   foreach ($db->query("SELECT * FROM app_user WHERE email = '$email'") as $row) {
     $pw_check = $row['pw'];
@@ -18,7 +19,9 @@ if (!empty($_POST)) {
       setcookie("user_id", $row['id'], time()+36000); //10 hours
       header("Location: index.php");
       break;
-    } 
+    } else { 
+      $canLogin = "Not Authorized";
+    }
 }
 
 }
@@ -63,25 +66,9 @@ if (!empty($_POST)) {
           <button class="btn btn-primary btn-block" href="index.html">Login</button>
         </form>
         <?php
-
-if (!empty($_POST)) {
-  $email = $_POST['email'];
-  $pw = $_POST['password'];
-
-  foreach ($db->query("SELECT * FROM app_user WHERE email = '$email'") as $row) {
-    $pw_check = $row['pw'];
-    if ($pw_check == $pw)
-    { 
-      echo "<p>Login Succesful! Redirection you to the home page.</p>";
-      setcookie("canLogin", true, time()+36000);
-      setcookie("user_id", $row['id'], time()+36000);
-      sleep(3);
-      flush();
-      //10 hours
-      header("Location: index.php");
-      break;
-    } 
-
+  if ($canLogin == "Not Authorized")  {
+    echo "wrong login, try again";
+  }
         ?>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">Register an Account</a>
