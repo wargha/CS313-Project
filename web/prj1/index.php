@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <?php
 if (isset($_COOKIE['canLogin'])) {
-
+  echo "aqui";
   if ($_COOKIE['canLogin'] != "auth") {
-    setcookie('canLogin', false);
+    setcookie('canLogin', "not auth");
     header("Location: login.php");
   }
 } else { 
+  echo "aqui2";
   echo $_COOKIE['canLogin'];
 }
 require "databaseLoader.php";
