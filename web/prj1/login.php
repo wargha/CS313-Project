@@ -67,7 +67,7 @@ if (!empty($_POST)) {
         </form>
         <?php
   if ($canLogin == "Not Authorized")  {
-    echo "wrong login, try again";
+    echo "<p style='color: red'>Email or password incorrect, please try again. </p>";
   }
         ?>
         <div class="text-center">
