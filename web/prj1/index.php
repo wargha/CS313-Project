@@ -2,10 +2,12 @@
 <?php
 if (isset($_COOKIE['canLogin'])) {
 
-  if ($_COOKIE['canLogin'] != true) {
+  if ($_COOKIE['canLogin'] != "auth") {
     setcookie('canLogin', false);
     header("Location: login.php");
   }
+} else { 
+  echo $_COOKIE['canLogin'];
 }
 require "databaseLoader.php";
 $db = get_db();
