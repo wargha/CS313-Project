@@ -3,7 +3,7 @@
 <?php
 require "databaseLoader.php";
 $db = get_db();
-
+unset($canLogin);
 $canLogin = "Not Set";
 if (!empty($_POST)) {
   $email = $_POST['email'];
@@ -12,20 +12,20 @@ if (!empty($_POST)) {
 
   foreach ($db->query("SELECT * FROM app_user WHERE email = '$email'") as $row) {
     $pw_check = $row['pw'];
-    if ($pw_check == $pw)
-    { 
+    if ($pw_check == $pw) {
       $canLogin = "correct";
-      setcookie("canLogin", true, time()+36000);
-      setcookie("user_id", $row['id'], time()+36000); //10 hours
+      setcookie("canLogin", true, time() + 36000);
+      setcookie("user_id", $row['id'], time() + 36000); //10 hours
       header("Location: index.php");
       break;
-    } else { 
+    } else {
       $canLogin = "Not Authorized";
+      setcookie('canLogin', false); 
     }
-}
-
+  }
 }
 ?>
+
 <head>
 
   <meta charset="utf-8">
@@ -66,13 +66,9 @@ if (!empty($_POST)) {
           <button class="btn btn-primary btn-block" href="index.html">Login</button>
         </form>
         <?php
-  if ($canLogin == "Not Authorized")  {
-    echo "<p style='color: red'>Email or password incorrect, please try again. </p>";
-  } else if ($canLogin = 'correct') { 
-   
-    echo "<p style='color: green'>Login successful! Redirecting you to the main page. </p>";
-   
-  }
+        if ($canLogin == "Not Authorized") {
+          echo "<p style='color: red'>Email or password incorrect, please try again. </p>";
+        }
         ?>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">Register an Account</a>

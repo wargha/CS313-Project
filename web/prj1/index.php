@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <?php
+if (isset($_COOKIE['canLogin'])) {
+
+  if ($_COOKIE['canLogin'] != true) {
+    setcookie('canLogin', false);
+    header("Location: login.php");
+  }
+}
 require "databaseLoader.php";
 $db = get_db();
 
@@ -31,8 +38,8 @@ ra.recipe_id = r.id
 WHERE
 u.id = 1
 ') as $row) {
-$recipe_day_title = $row['title'];
-$recipe_day_description = $row['descr'];
+  $recipe_day_title = $row['title'];
+  $recipe_day_description = $row['descr'];
 }
 ?>
 <html lang="en">
@@ -159,9 +166,9 @@ $recipe_day_description = $row['descr'];
             Your Allergies</div>
           <div class="card-body d-flex flex-row justify-content-around">
             <?php
-          $recipe_day_title = '';
-          $recipe_day_description = '';
-                    foreach ($db->query('-- Select allergies from one user
+            $recipe_day_title = '';
+            $recipe_day_description = '';
+            foreach ($db->query('-- Select allergies from one user
             SELECT
                 u.id,
                 u.name,
@@ -174,12 +181,12 @@ $recipe_day_description = $row['descr'];
             WHERE u.id = 1
             ORDER BY
                 u.name;') as $row) {
-                      echo'
+              echo '
                     <div class="d-flex flex-column ml-2">
-                      <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+                      <h5 class="card-title text-center">' . ucfirst($row['name']) . '</h5>
                       <a href="#" class="btn btn-primary btn-md ">See Description</a>
                     </div>';
-                    }
+            }
             ?>
 
           </div>
