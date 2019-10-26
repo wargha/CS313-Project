@@ -154,7 +154,8 @@ u.id = 1
             <?php
             $recipe_day_title = '';
             $recipe_day_description = '';
-            foreach ($db->query('-- Select allergies from one user
+            $user_id = $_COOKIE['id'];
+            foreach ($db->query("
             SELECT
                 u.id,
                 u.name,
@@ -164,9 +165,9 @@ u.id = 1
                 APP_USER u
                 JOIN USER_ALLERGY ua ON ua.user_id = u.id
                 JOIN ALLERGY a ON ua.allergy_id = a.id
-            WHERE u.id = 1
+            WHERE u.id = '$user_id'
             ORDER BY
-                u.name;') as $row) {
+                u.name;") as $row) {
               echo '
                     <div class="d-flex flex-column ml-2">
                       <h5 class="card-title text-center">' . ucfirst($row['name']) . '</h5>
