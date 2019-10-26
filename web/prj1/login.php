@@ -14,7 +14,7 @@ if (!empty($_POST)) {
     $pw_check = $row['pw'];
     if ($pw_check == $pw)
     { 
-      echo "Correct login!";
+      $canLogin = "correct";
       setcookie("canLogin", true, time()+36000);
       setcookie("user_id", $row['id'], time()+36000); //10 hours
       header("Location: index.php");
@@ -68,6 +68,8 @@ if (!empty($_POST)) {
         <?php
   if ($canLogin == "Not Authorized")  {
     echo "<p style='color: red'>Email or password incorrect, please try again. </p>";
+  } else if ($canLogin = 'correct') { 
+    echo "<p style='color: green'>Login successful! Redirecting you to the main page. </p>";
   }
         ?>
         <div class="text-center">
