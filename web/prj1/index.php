@@ -155,6 +155,7 @@ u.id = 1
             $recipe_day_title = '';
             $recipe_day_description = '';
             $user_id = $_COOKIE['id'];
+            $count = 0;
             foreach ($db->query("
             SELECT
                 u.id,
@@ -173,6 +174,14 @@ u.id = 1
                       <h5 class="card-title text-center">' . ucfirst($row['name']) . '</h5>
                       <a href="#" class="btn btn-primary btn-md ">See Description</a>
                     </div>';
+                    $count++;
+            }
+            if ($count == 0) { 
+              echo '
+              <div class="d-flex flex-column ml-2">
+                <h5 class="card-title text-center"> You have not added allergies yet.</h5>
+                <a href="#" class="btn btn-primary btn-md ">Click Here to add a new allergy to your user id.</a>
+              </div>';
             }
             ?>
 
