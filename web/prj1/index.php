@@ -154,7 +154,7 @@ u.id = 1
             <?php
             $recipe_day_title = '';
             $recipe_day_description = '';
-            $user_id = $_COOKIE['id'];
+            $user_id = $_COOKIE['user_id'];
             $count = 0;
             foreach ($db->query("
             SELECT
