@@ -15,7 +15,9 @@ if (!empty($_POST)) {
     if ($pw_check == $pw)
     { 
       echo "Correct login!";
-      setcookie("canLogin", true, time()+36000); //10 hours
+      setcookie("canLogin", true, time()+36000);
+      setcookie("user_id", $row['id'], time()+36000); //10 hours
+      header("Location: index.php");
       break;
     }
 }
