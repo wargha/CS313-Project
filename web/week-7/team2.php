@@ -1,6 +1,6 @@
 <?php
  require("databaseLoader.php");
-// $db = get_db();
+$db = get_db();
 
 
 $id = $_POST['id'];
