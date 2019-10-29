@@ -10,6 +10,7 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
  echo $password;
 
  foreach ($db->query("SELECT * FROM team_users WHERE username = '$username'") as $row) { 
+	 echo "CHEGAY";
 	$pw_check = $row['password'];
 	if ($password == $pw_check) { 
 		header('Location: welcome.php');
