@@ -1,18 +1,21 @@
 <?php
-require("databaseLoader.php");
-$db = get_db();
+ require("databaseLoader.php");
+// $db = get_db();
 
 
 $id = $_POST['id'];
-// $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
- $password =$_POST['password'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+//  $password =$_POST['password'];
+
+ echo $id;
+ echo $password;
 
 
-$query = 'INSERT INTO team_users (id, password) VALUES(:id, :password)';
-$statement = $db->prepare($query);
-$statement->bindValue(':id', $id);
-$statement->bindValue(':password', $password);
+// $query = 'INSERT INTO team_users (id, password) VALUES(:id, :password)';
+// $statement = $db->prepare($query);
+// $statement->bindValue(':id', $id);
+// $statement->bindValue(':password', $password);
 
-$statement->execute();
+// $statement->execute();
 
 echo "it worked";
