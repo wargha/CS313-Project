@@ -29,7 +29,7 @@
     <?php
 
     session_start();
-    echo "Welcome " . ucfirst($_SESSION['USERNAME']);
+    echo "You are logged as: " . ucfirst($_SESSION['USERNAME']);
     ?>
 
 </body>
