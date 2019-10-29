@@ -11,6 +11,8 @@ $password = $_POST['password'];
 
  foreach ($db->query("SELECT * FROM team_users WHERE username = '$username'") as $row) { 
 	$pw_check = $row['password'];
+	echo $pw_check;
+	echo "===========" . $password;
 	if (password_verify($pw_check, $password)) { 
 		header('Location: welcome.php');
 	} else  {
