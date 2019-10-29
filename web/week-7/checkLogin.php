@@ -4,15 +4,14 @@ $db = get_db();
 
 
 $username = $_POST['id'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$password = $_POST['password'];
 
  echo $username;
  echo $password;
 
  foreach ($db->query("SELECT * FROM team_users WHERE username = '$username'") as $row) { 
-	 echo "CHEGAY";
 	$pw_check = $row['password'];
-	if ($password == $pw_check) { 
+	if (password_verify($pw_check, $password)) { 
 		header('Location: welcome.php');
 	} else  {
 		echo "wrong password SALAME!";
