@@ -4,7 +4,8 @@ $db = get_db();
 
 
 $id = $_POST['id'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+// $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+ $password =$_POST['password'];
 
 
 $query = 'INSERT INTO team_users (id, password) VALUES(:id, :password)';
