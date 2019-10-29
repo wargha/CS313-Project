@@ -15,7 +15,7 @@ $password = $_POST['password'];
 	echo "===========" . password_verify($pw_check, $password);
 	if (password_verify( $password ,$pw_check)) { 
 		session_start();
-		$_SESSION['USERNAME'] = $id;
+		$_SESSION['USERNAME'] = $username;
 		header('Location: welcome.php');
 	} else  {
 		header('Location: signin.php');
