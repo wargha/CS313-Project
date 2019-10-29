@@ -26,12 +26,10 @@
 </head>
 
 <body>
-
-    DEU CERTO LOCO!
     <?php
 
     session_start();
-    echo $_SESSION['USERNAME'];
+    echo "Welcome " . $_SESSION['USERNAME'];
     ?>
 
 </body>
