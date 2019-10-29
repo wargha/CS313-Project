@@ -3,16 +3,16 @@
 $db = get_db();
 
 
-$id = $_POST['id'];
+$username = $_POST['id'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
- echo $id;
+ echo $username;
  echo $password;
 
 try {
-$query = 'INSERT INTO team_users (id, password) VALUES(:id, :password)';
+$query = 'INSERT INTO team_users (username, password) VALUES(:username, :password)';
 $statement = $db->prepare($query);
-$statement->bindValue(':id', $id);
+$statement->bindValue(':username', $username);
 $statement->bindValue(':password', $password);
 $statement->execute();
 
