@@ -9,12 +9,15 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
  echo $id;
  echo $password;
 
-
+try {
 $query = 'INSERT INTO team_users (id, password) VALUES(:id, :password)';
 $statement = $db->prepare($query);
-echo "it worked";
 $statement->bindValue(':id', $id);
 $statement->bindValue(':password', $password);
 $statement->execute();
 
-
+} catch (Exception $ex)
+{ 
+	echo "Error with db. Details:  $ex";
+	die();
+}
