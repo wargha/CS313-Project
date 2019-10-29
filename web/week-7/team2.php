@@ -15,7 +15,7 @@ $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
 $statement->bindValue(':password', $password);
 $statement->execute();
-
+header('Location: signin.php');
 } catch (Exception $ex)
 { 
 	echo "Error with db. Details:  $ex";
