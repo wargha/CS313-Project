@@ -14,8 +14,10 @@ $password = $_POST['password'];
 	echo $pw_check;
 	echo "===========" . password_verify($pw_check, $password);
 	if (password_verify( $password ,$pw_check)) { 
+		session_start();
+		$_SESSION['USERNAME'] = $id;
 		header('Location: welcome.php');
 	} else  {
-		echo "wrong password SALAME!";
+		header('Location: signin.php');
 	}
  }

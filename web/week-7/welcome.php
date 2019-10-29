@@ -27,7 +27,12 @@
 
 <body>
 
-DEU CERTO LOCO!
+    DEU CERTO LOCO!
+    <?php
+
+    session_start();
+    echo $_SESSION['USERNAME'];
+    ?>
 
 </body>
 
