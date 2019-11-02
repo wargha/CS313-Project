@@ -92,7 +92,7 @@ if(isset($_POST['removeAllergy'])){
             Current Allergies - Tap to Remove</div>
           <div class="card-body d-flex flex-row justify-content-around">
             <?php
-
+   $user_id = $_COOKIE['user_id'];
                     foreach ($db->query('SELECT
                 u.id,
                 u.name,
@@ -102,7 +102,7 @@ if(isset($_POST['removeAllergy'])){
                 APP_USER u
                 JOIN USER_ALLERGY ua ON ua.user_id = u.id
                 JOIN ALLERGY a ON ua.allergy_id = a.id
-            WHERE u.id = 1
+            WHERE u.id = $user_id
             ORDER BY
                 u.name;') as $row) {
                       echo'
