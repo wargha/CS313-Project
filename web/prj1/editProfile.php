@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-// require "databaseLoader.php";
-// $db = get_db();
+require "databaseLoader.php";
+$db = get_db();
 ?>
 <html lang="en">
 
@@ -31,7 +31,7 @@
 
 <body id="page-top">
 
-<?php require_once('navtop.php') ?>
+  <?php require_once('navtop.php') ?>
 
   <div id="wrapper">
 
@@ -78,63 +78,70 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
-           Edit Profile</div>
-            <div class="card-body d-flex flex-row justify-content-around">
-              <span>1. Add or Remove Allergies</span>
-          <?php
+            Current Allergies</div>
+          <div class="card-body d-flex flex-column justify-content-around">
+            <span>Your Current Allergies - Tap to Remove</span>
+            <?php
 
-  //         foreach ($db->query('-- Select allergies from one user
-  // SELECT
-  //     u.id,
-  //     u.name,
-  //     a.id,
-  //     a.name
-  // FROM
-  //     APP_USER u
-  //     JOIN USER_ALLERGY ua ON ua.user_id = u.id
-  //     JOIN ALLERGY a ON ua.allergy_id = a.id
-  // WHERE u.id = 1
-  // ORDER BY
-  //     u.name;') as $row) {
+                    foreach ($db->query('SELECT
+                u.id,
+                u.name,
+                a.id,
+                a.name
+            FROM
+                APP_USER u
+                JOIN USER_ALLERGY ua ON ua.user_id = u.id
+                JOIN ALLERGY a ON ua.allergy_id = a.id
+            WHERE u.id = 1
+            ORDER BY
+                u.name;') as $row) {
 
-  //           echo'
-  //         <div class="d-flex flex-column ml-2">
-  //           <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
-  //           <a href="#" class="btn btn-primary btn-md ">See Description</a>
-  //         </div>';
-  //         }
-       ?>
+                      echo'
+                    <div class="d-flex flex-column ml-2">
+                      <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+                      <a href="#" class="btn btn-danger btn-md">Remove</a>
+                    </div>';
+                    }
+            ?>
 
           </div>
         </div>
 
         <!-- DataTables Example -->
-   
-        <?php 
-        date_default_timezone_set('America/Denver');
-        $date = date('m/d/Y h:i:s a', time());
-        ?>
-          <div class="card-footer small text-muted">Last Updated on
-            <?php
-            echo $date;
-            ?>
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            Add Allergies - Tap to Add</div>
+          <div class="card-body d-flex flex-column justify-content-around">
+            <span>Select from the following: </span>
           </div>
         </div>
-
       </div>
-      <!-- /.container-fluid -->
-
-      <!-- Sticky Footer -->
-      <footer class="sticky-footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright © Lucas Wargha 2019</span>
-          </div>
-        </div>
-      </footer>
-
+      <?php
+      date_default_timezone_set('America/Denver');
+      $date = date('m/d/Y h:i:s a', time());
+      ?>
+      <div class="card-footer small text-muted">Last Updated on
+        <?php
+        echo $date;
+        ?>
+      </div>
     </div>
-    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /.container-fluid -->
+
+  <!-- Sticky Footer -->
+  <footer class="sticky-footer">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span>Copyright © Lucas Wargha 2019</span>
+      </div>
+    </div>
+  </footer>
+
+  </div>
+  <!-- /.content-wrapper -->
 
   </div>
   <!-- /#wrapper -->
