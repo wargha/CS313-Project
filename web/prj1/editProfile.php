@@ -4,7 +4,7 @@ require "databaseLoader.php";
 $db = get_db();
 
 if(isset($_POST['removeAllergy'])){
- echo " lets remove this stuff";
+ echo $_POST['removeAllergy'];
 }  
 ?>
 <html lang="en">
