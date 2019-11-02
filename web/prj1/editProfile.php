@@ -26,6 +26,7 @@
 
 <body id="page-top">
 
+  <?php require_once('navtop.php') ?>
 
   <div id="wrapper">
 
