@@ -95,10 +95,10 @@ $db = get_db();
             ORDER BY
                 u.name;') as $row) {
                       echo'
-                    <div class="d-flex flex-column ml-2">
+                    <form class="d-flex flex-column ml-2">
                       <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
-                      <a href="#" class="btn btn-danger btn-md">Remove</a>
-                    </div>';
+                      <button type="submit" class="btn btn-danger btn-md">Remove</button>
+                    </form>';
                     }
             ?>
           </div>
