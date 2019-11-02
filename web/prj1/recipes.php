@@ -21,6 +21,7 @@ foreach ($db->query('SELECT
   array_push($allergyArray, $row['id']);
 }
 ?>
+
 <head>
 
   <meta charset="utf-8">
@@ -44,12 +45,12 @@ foreach ($db->query('SELECT
 
 <body id="page-top">
 
-  
 
-    <!-- Navbar Search -->
 
-    <!-- Navbar -->
-    <?php require_once('navTop.php') ?>
+  <!-- Navbar Search -->
+
+  <!-- Navbar -->
+  <?php require_once('navTop.php') ?>
 
 
   <div id="wrapper">
@@ -95,24 +96,20 @@ foreach ($db->query('SELECT
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
             Your Recipes</div>
-            <div class="card-body d-flex flex-row justify-content-around">
-          <?php
-          // echo "HERE!!!";
-         
+          <div class="card-body d-flex flex-row justify-content-around">
+            <?php
+            // echo "HERE!!!";
+
             foreach ($db->query('SELECT * FROM recipe
       ') as $row) {
-            echo'
+              echo '
           <div class="d-flex flex-column ml-2">
-            <h5 class="card-title text-center">'. ucfirst($row['title']) . '</h5>
-            <a href="#" class="btn btn-primary btn-md  data-target="#recipe">See Description</a>
+            <h5 class="card-title text-center">' . ucfirst($row['title']) . '</h5>
+            <a href="#" class="btn btn-primary btn-md"  data-target="#recipe">See Description</a>
           </div>';
-          }
-         
-       ?>
-
+            }
+            ?>
           </div>
-          
-      
         </div>
         <div class="modal fade" id="recipe" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -152,7 +149,7 @@ foreach ($db->query('SELECT
           </div>
         </div>
       </div>
-      
+
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
