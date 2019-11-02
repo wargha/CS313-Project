@@ -3,7 +3,7 @@
 require "databaseLoader.php";
 $db = get_db();
 
-if(isset($_POST['removeRecipe'])){
+if(isset($_POST['removeAllergy'])){
  echo " lets remove this stuff";
 }  
 ?>
