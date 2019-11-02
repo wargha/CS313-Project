@@ -36,16 +36,6 @@ $db = get_db();
     </button>
 
     <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
 
     <!-- Navbar -->
     <?php require_once('navTop.php') ?>
@@ -73,7 +63,7 @@ $db = get_db();
           <span>Recipe Database</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="safeguards.php">
           <i class="fas fa-fw fa-utensils"></i>
           <span>Allergy Safeguards</span></a>
       </li>
@@ -172,7 +162,7 @@ $db = get_db();
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="login.php">Logout</a>
         </div>
       </div>
     </div>
