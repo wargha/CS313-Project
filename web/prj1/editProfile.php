@@ -18,7 +18,7 @@ foreach ($db->query('SELECT
                 u.name;') as $row) {
   array_push($allergyArray, $row['id']);
 }
-print_r($allergyArray);
+
 
 if (isset($_POST['removeAllergy'])) {
   // echo $_POST['removeAllergy'];
@@ -158,7 +158,7 @@ allergy_id) VALUES
           <div class="card-body d-flex flex-row justify-content-around">
             <?php
             foreach ($db->query('SELECT * FROM allergy') as $row) {
-              if (!in_array($allergyArray, $row['id'])) {
+              if (!in_array($row['id'], $allergyArray)) {
                 echo '
                     <form method="POST" action="editProfile.php" class="d-flex flex-column ml-2">
                       <h5 class="card-title text-center">' . ucfirst($row['name']) . '</h5>

@@ -34,3 +34,6 @@ FROM
     ra.recipe_id = r.id
 WHERE
     u.id = 1
+
+
+-- DELETE FROM user_allergy WHERE allergy_id = :allergy_id AND user_id = :user_id 
