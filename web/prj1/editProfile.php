@@ -1,5 +1,10 @@
 <!DOCTYPE html>
+<?php
+require "databaseLoader.php";
+$db = get_db();
+?>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -26,7 +31,7 @@
 
 <body id="page-top">
 
-  <?php require_once('navtop.php') ?>
+  <?php require_once('navTop.php') ?>
 
   <div id="wrapper">
 
@@ -76,6 +81,27 @@
             Current Allergies</div>
           <div class="card-body d-flex flex-column justify-content-around">
             <span>Your Current Allergies - Tap to Remove</span>
+            <?php
+
+                    foreach ($db->query('SELECT
+                u.id,
+                u.name,
+                a.id,
+                a.name
+            FROM
+                APP_USER u
+                JOIN USER_ALLERGY ua ON ua.user_id = u.id
+                JOIN ALLERGY a ON ua.allergy_id = a.id
+            WHERE u.id = 1
+            ORDER BY
+                u.name;') as $row) {
+                      echo'
+                    <div class="d-flex flex-column ml-2">
+                      <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+                      <a href="#" class="btn btn-danger btn-md">Remove</a>
+                    </div>';
+                    }
+            ?>
           </div>
         </div>
 
@@ -89,9 +115,14 @@
           </div>
         </div>
       </div>
-
+      <?php
+      date_default_timezone_set('America/Denver');
+      $date = date('m/d/Y h:i:s a', time());
+      ?>
       <div class="card-footer small text-muted">Last Updated on
-
+        <?php
+        echo $date;
+        ?>
       </div>
     </div>
   </div>
