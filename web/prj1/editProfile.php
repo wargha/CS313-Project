@@ -78,8 +78,8 @@
           <div class="card-body d-flex flex-column justify-content-around">
             <span>Your Current Allergies - Tap to Remove</span>
             <?php
-            require "databaseLoader.php";
-            $db = get_db();
+            // require "databaseLoader.php";
+            // $db = get_db();
 
             //         foreach ($db->query('SELECT
             //     u.id,
