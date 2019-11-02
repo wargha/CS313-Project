@@ -95,9 +95,9 @@ $db = get_db();
             ORDER BY
                 u.name;') as $row) {
                       echo'
-                    <form class="d-flex flex-column ml-2">
+                    <form method="POST" action="editProfile.php" class="d-flex flex-column ml-2">
                       <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
-                      <button type="submit" class="btn btn-danger btn-md">Remove</button>
+                      <button name="removeAllergy" value="1" type="submit" class="btn btn-danger btn-md">Remove</button>
                     </form>';
                     }
             ?>
