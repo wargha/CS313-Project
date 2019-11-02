@@ -110,8 +110,7 @@ foreach ($db->query('SELECT
             }
             ?>
           </div>
-        </div>
-        <div class="modal fade" id="recipe" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+          <div class="modal fade" id="recipe" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -148,6 +147,8 @@ foreach ($db->query('SELECT
             </div>
           </div>
         </div>
+        </div>
+
       </div>
 
       <!-- /.container-fluid -->
