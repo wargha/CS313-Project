@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<?php
-require "databaseLoader.php";
-$db = get_db();
-?>
 <html lang="en">
 
 <head>
@@ -82,28 +78,28 @@ $db = get_db();
           <div class="card-body d-flex flex-column justify-content-around">
             <span>Your Current Allergies - Tap to Remove</span>
             <?php
+            require "databaseLoader.php";
+            $db = get_db();
 
-                    foreach ($db->query('SELECT
-                u.id,
-                u.name,
-                a.id,
-                a.name
-            FROM
-                APP_USER u
-                JOIN USER_ALLERGY ua ON ua.user_id = u.id
-                JOIN ALLERGY a ON ua.allergy_id = a.id
-            WHERE u.id = 1
-            ORDER BY
-                u.name;') as $row) {
-
-                      echo'
-                    <div class="d-flex flex-column ml-2">
-                      <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
-                      <a href="#" class="btn btn-danger btn-md">Remove</a>
-                    </div>';
-                    }
+            //         foreach ($db->query('SELECT
+            //     u.id,
+            //     u.name,
+            //     a.id,
+            //     a.name
+            // FROM
+            //     APP_USER u
+            //     JOIN USER_ALLERGY ua ON ua.user_id = u.id
+            //     JOIN ALLERGY a ON ua.allergy_id = a.id
+            // WHERE u.id = 1
+            // ORDER BY
+            //     u.name;') as $row) {
+            //           echo'
+            //         <div class="d-flex flex-column ml-2">
+            //           <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+            //           <a href="#" class="btn btn-danger btn-md">Remove</a>
+            //         </div>';
+            //         }
             ?>
-
           </div>
         </div>
 
@@ -127,9 +123,7 @@ $db = get_db();
         ?>
       </div>
     </div>
-
   </div>
-  <!-- /.container-fluid -->
 
   <!-- Sticky Footer -->
   <footer class="sticky-footer">
