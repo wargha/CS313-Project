@@ -110,7 +110,7 @@ if(isset($_POST['removeAllergy'])){
                       echo'
                     <form method="POST" action="editProfile.php" class="d-flex flex-column ml-2">
                       <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
-                      <button name="removeAllergy" value="1" type="submit" class="btn btn-danger btn-md">Remove</button>
+                      <button name="removeAllergy" value="' . $row['allergy_id'] . '" type="submit" class="btn btn-danger btn-md">Remove</button>
                     </form>';
                     }
             ?>
@@ -123,7 +123,15 @@ if(isset($_POST['removeAllergy'])){
             <i class="fas fa-chart-area"></i>
             Add Allergies - Tap to Add</div>
           <div class="card-body d-flex flex-column justify-content-around">
-            <span>Select from the following: </span>
+          <?php
+                    foreach ($db->query('SELECT * FROM allergy') as $row) {
+                      echo'
+                    <form method="POST" action="editProfile.php" class="d-flex flex-column ml-2">
+                      <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+                      <button name="addAlergy" value="1" type="submit" class="btn btn-danger btn-md">Remove</button>
+                    </form>';
+                    }
+            ?>
           </div>
         </div>
       </div>
