@@ -5,6 +5,13 @@ $db = get_db();
 
 if(isset($_POST['removeAllergy'])){
  echo $_POST['removeAllergy'];
+ $sql = 'DELETE FROM user_allergy WHERE allergy_id = :allergy_id AND user_id = :user_id ';
+        $user_id = $_COOKIE['user_id'];
+        $allergy_id = $_POST['removeAllergy'];
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':allergy_id', $allergy_id);
+        $stmt->bindValue(':user_id', $user_id);
+        $stmt->execute();
 }  
 ?>
 <html lang="en">
