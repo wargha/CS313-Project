@@ -2,6 +2,10 @@
 <?php
 require "databaseLoader.php";
 $db = get_db();
+
+if(isset($_POST['removeRecipe'])){
+ echo " lets remove this stuff";
+}  
 ?>
 <html lang="en">
 
