@@ -96,7 +96,6 @@ if(isset($_POST['removeAllergy'])){
             <?php
    $user_id = $_COOKIE['user_id'];
                     foreach ($db->query('SELECT
-                u.id,
                 u.name,
                 a.id,
                 a.name
@@ -110,7 +109,7 @@ if(isset($_POST['removeAllergy'])){
                       echo'
                     <form method="POST" action="editProfile.php" class="d-flex flex-column ml-2">
                       <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
-                      <button name="removeAllergy" value="' . $row['allergy_id'] . '" type="submit" class="btn btn-danger btn-md">Remove</button>
+                      <button name="removeAllergy" value="' . $row['id'] . '" type="submit" class="btn btn-danger btn-md">Remove</button>
                     </form>';
                     }
             ?>
@@ -128,7 +127,7 @@ if(isset($_POST['removeAllergy'])){
                       echo'
                     <form method="POST" action="editProfile.php" class="d-flex flex-column ml-2">
                       <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
-                      <button name="addAlergy" value="' . $row['id'] . '" type="submit" class="btn btn-danger btn-md">Add</button>
+                      <button name="addAlergy" value="' . $row['id'] . '" type="submit" class="btn btn-primary btn-md">Add</button>
                     </form>';
                     }
             ?>
