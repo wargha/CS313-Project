@@ -15,6 +15,22 @@ if(isset($_POST['removeAllergy'])){
         $stmt->execute();
         unset($_POST['removeAllergy']);
 }  
+
+if(isset($_POST['addAllergy'])){
+  //  echo $_POST['removeAllergy'];
+  //  echo $_COOKIE['user_id'];INSERT INTO
+   $sql = 'INSERT INTO user_allergy (
+    user_id,
+    allergy_id) VALUES
+ (:user_id, :allergy_id) ';
+          $user_id = $_COOKIE['user_id'];
+          $allergy_id = $_POST['addAllergy'];
+          $stmt = $db->prepare($sql);
+          $stmt->bindValue(':allergy_id', $allergy_id);
+          $stmt->bindValue(':user_id', $user_id);
+          $stmt->execute();
+          unset($_POST['addAllergy']);
+  }  
 ?>
 <html lang="en">
 
@@ -127,7 +143,7 @@ if(isset($_POST['removeAllergy'])){
                       echo'
                     <form method="POST" action="editProfile.php" class="d-flex flex-column ml-2">
                       <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
-                      <button name="addAlergy" value="' . $row['id'] . '" type="submit" class="btn btn-primary btn-md">Add</button>
+                      <button name="addAllergy" value="' . $row['id'] . '" type="submit" class="btn btn-primary btn-md">Add</button>
                     </form>';
                     }
             ?>
