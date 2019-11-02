@@ -19,7 +19,7 @@ foreach ($db->query('SELECT
   array_push($allergyArray, $row['id']);
 }
 print_r($allergyArray);
-?>
+
 if(isset($_POST['removeAllergy'])){
 // echo $_POST['removeAllergy'];
 // echo $_COOKIE['user_id'];
