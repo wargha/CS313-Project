@@ -98,7 +98,7 @@ u.id = 1
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-utensils"></i>
-          <span>Find Restaurants</span></a>
+          <span>Allergy Safeguards</span></a>
       </li>
     </ul>
     <div id="content-wrapper">

@@ -56,7 +56,7 @@ $db = get_db();
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-utensils"></i>
-          <span>Find Restaurants</span></a>
+          <span>Allergy Safeguards</span></a>
       </li>
     </ul>
 
