@@ -98,40 +98,16 @@ foreach ($db->query('SELECT
             <div class="card-body d-flex flex-row justify-content-around">
           <?php
           // echo "HERE!!!";
-          foreach ($allergyArray as $singleAllergy) { 
-            echo $singleAllergy;
-          }
-          foreach ($db->query('
-          SELECT
-          u.name,
-          a.name,
-          r.title
-      FROM
-          APP_USER u
-          JOIN 
-          USER_ALLERGY ua 
-          ON ua.user_id = u.id
-          JOIN 
-          ALLERGY a 
-          ON 
-          ua.allergy_id = a.id
-          JOIN 
-          RECIPE_ALLERGY ra 
-          ON 
-          ra.allergy_id = a.id
-          JOIN RECIPE r 
-          ON
-          ra.recipe_id = r.id
-      WHERE
-          u.id = 1
+         
+            foreach ($db->query('SELECT * FROM recipe
       ') as $row) {
-
             echo'
           <div class="d-flex flex-column ml-2">
             <h5 class="card-title text-center">'. ucfirst($row['title']) . '</h5>
             <a href="#" class="btn btn-primary btn-md ">See Description</a>
           </div>';
           }
+         
        ?>
 
           </div>
