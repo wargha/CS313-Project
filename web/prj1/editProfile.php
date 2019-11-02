@@ -26,7 +26,6 @@
 
 <body id="page-top">
 
-  <?php require_once('navtop.php') ?>
 
   <div id="wrapper">
 
@@ -89,14 +88,9 @@
           </div>
         </div>
       </div>
-      <?php
-      date_default_timezone_set('America/Denver');
-      $date = date('m/d/Y h:i:s a', time());
-      ?>
+
       <div class="card-footer small text-muted">Last Updated on
-        <?php
-        echo $date;
-        ?>
+
       </div>
     </div>
   </div>
