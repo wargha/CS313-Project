@@ -3,6 +3,23 @@
 <?php
 require "databaseLoader.php";
 $db = get_db();
+
+$allergyArray = array();
+
+$user_id = $_COOKIE['user_id'];
+foreach ($db->query('SELECT
+                u.name,
+                a.id,
+                a.name
+            FROM
+                APP_USER u
+                JOIN USER_ALLERGY ua ON ua.user_id = u.id
+                JOIN ALLERGY a ON ua.allergy_id = a.id
+            WHERE u.id = ' . $user_id . '
+            ORDER BY
+                u.name;') as $row) {
+  array_push($allergyArray, $row['id']);
+}
 ?>
 <head>
 
@@ -81,7 +98,9 @@ $db = get_db();
             <div class="card-body d-flex flex-row justify-content-around">
           <?php
           // echo "HERE!!!";
-
+          foreach ($allergyArray as $singleAllergy) { 
+            echo $singleAllergy;
+          }
           foreach ($db->query('
           SELECT
           u.name,
