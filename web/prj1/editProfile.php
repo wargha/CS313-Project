@@ -102,7 +102,7 @@ if(isset($_POST['removeAllergy'])){
                 APP_USER u
                 JOIN USER_ALLERGY ua ON ua.user_id = u.id
                 JOIN ALLERGY a ON ua.allergy_id = a.id
-            WHERE u.id = $user_id
+            WHERE u.id = ' . $user_id . '
             ORDER BY
                 u.name;') as $row) {
                       echo'
