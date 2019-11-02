@@ -200,7 +200,7 @@ u.id = 1
               echo '
               <div class="d-flex flex-column ml-2">
                 <h5 class="card-title text-center"> You have not added allergies yet.</h5>
-                <a href="#" class="btn btn-danger btn-md ">Click Here to add a new allergy to your user id.</a>
+                <a href="editProfile.php" class="btn btn-danger btn-md ">Click Here to add a new allergy to your user id.</a>
               </div>';
             }
 

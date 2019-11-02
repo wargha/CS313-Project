@@ -2,35 +2,52 @@
 <?php
 require "databaseLoader.php";
 $db = get_db();
+$allergyArray = array();
 
+$user_id = $_COOKIE['user_id'];
+foreach ($db->query('SELECT
+                u.name,
+                a.id,
+                a.name
+            FROM
+                APP_USER u
+                JOIN USER_ALLERGY ua ON ua.user_id = u.id
+                JOIN ALLERGY a ON ua.allergy_id = a.id
+            WHERE u.id = ' . $user_id . '
+            ORDER BY
+                u.name;') as $row) {
+  array_push($allergyArray, $row['id']);
+}
+print_r($allergyArray);
+?>
 if(isset($_POST['removeAllergy'])){
-//  echo $_POST['removeAllergy'];
-//  echo $_COOKIE['user_id'];
- $sql = 'DELETE FROM user_allergy WHERE allergy_id = :allergy_id AND user_id = :user_id ';
-        $user_id = $_COOKIE['user_id'];
-        $allergy_id = $_POST['removeAllergy'];
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':allergy_id', $allergy_id);
-        $stmt->bindValue(':user_id', $user_id);
-        $stmt->execute();
-        unset($_POST['removeAllergy']);
-}  
+// echo $_POST['removeAllergy'];
+// echo $_COOKIE['user_id'];
+$sql = 'DELETE FROM user_allergy WHERE allergy_id = :allergy_id AND user_id = :user_id ';
+$user_id = $_COOKIE['user_id'];
+$allergy_id = $_POST['removeAllergy'];
+$stmt = $db->prepare($sql);
+$stmt->bindValue(':allergy_id', $allergy_id);
+$stmt->bindValue(':user_id', $user_id);
+$stmt->execute();
+unset($_POST['removeAllergy']);
+}
 
 if(isset($_POST['addAllergy'])){
-  //  echo $_POST['removeAllergy'];
-  //  echo $_COOKIE['user_id'];INSERT INTO
-   $sql = 'INSERT INTO user_allergy (
-    user_id,
-    allergy_id) VALUES
- (:user_id, :allergy_id) ';
-          $user_id = $_COOKIE['user_id'];
-          $allergy_id = $_POST['addAllergy'];
-          $stmt = $db->prepare($sql);
-          $stmt->bindValue(':allergy_id', $allergy_id);
-          $stmt->bindValue(':user_id', $user_id);
-          $stmt->execute();
-          unset($_POST['addAllergy']);
-  }  
+// echo $_POST['removeAllergy'];
+// echo $_COOKIE['user_id'];INSERT INTO
+$sql = 'INSERT INTO user_allergy (
+user_id,
+allergy_id) VALUES
+(:user_id, :allergy_id) ';
+$user_id = $_COOKIE['user_id'];
+$allergy_id = $_POST['addAllergy'];
+$stmt = $db->prepare($sql);
+$stmt->bindValue(':allergy_id', $allergy_id);
+$stmt->bindValue(':user_id', $user_id);
+$stmt->execute();
+unset($_POST['addAllergy']);
+}
 ?>
 <html lang="en">
 
@@ -110,8 +127,8 @@ if(isset($_POST['addAllergy'])){
             Current Allergies - Tap to Remove</div>
           <div class="card-body d-flex flex-row justify-content-around">
             <?php
-   $user_id = $_COOKIE['user_id'];
-                    foreach ($db->query('SELECT
+            $user_id = $_COOKIE['user_id'];
+            foreach ($db->query('SELECT
                 u.name,
                 a.id,
                 a.name
@@ -122,12 +139,12 @@ if(isset($_POST['addAllergy'])){
             WHERE u.id = ' . $user_id . '
             ORDER BY
                 u.name;') as $row) {
-                      echo'
+              echo '
                     <form method="POST" action="editProfile.php" class="d-flex flex-column ml-2">
-                      <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+                      <h5 class="card-title text-center">' . ucfirst($row['name']) . '</h5>
                       <button name="removeAllergy" value="' . $row['id'] . '" type="submit" class="btn btn-danger btn-md">Remove</button>
                     </form>';
-                    }
+            }
             ?>
           </div>
         </div>
@@ -138,14 +155,14 @@ if(isset($_POST['addAllergy'])){
             <i class="fas fa-chart-area"></i>
             Add Allergies - Tap to Add</div>
           <div class="card-body d-flex flex-row justify-content-around">
-          <?php
-                    foreach ($db->query('SELECT * FROM allergy') as $row) {
-                      echo'
+            <?php
+            foreach ($db->query('SELECT * FROM allergy') as $row) {
+              echo '
                     <form method="POST" action="editProfile.php" class="d-flex flex-column ml-2">
-                      <h5 class="card-title text-center">'. ucfirst($row['name']) . '</h5>
+                      <h5 class="card-title text-center">' . ucfirst($row['name']) . '</h5>
                       <button name="addAllergy" value="' . $row['id'] . '" type="submit" class="btn btn-primary btn-md">Add</button>
                     </form>';
-                    }
+            }
             ?>
           </div>
         </div>
