@@ -78,9 +78,8 @@ $db = get_db();
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
-            Current Allergies</div>
-          <div class="card-body d-flex flex-column justify-content-around">
-            <span>Your Current Allergies - Tap to Remove</span>
+            Current Allergies - Tap to Remove</div>
+          <div class="card-body d-flex flex-row justify-content-around">
             <?php
 
                     foreach ($db->query('SELECT
