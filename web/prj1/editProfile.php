@@ -31,7 +31,6 @@ if (isset($_POST['removeAllergy'])) {
   $stmt->bindValue(':user_id', $user_id);
   $stmt->execute();
   unset($_POST['removeAllergy']);
-  unset($allergyArray);
 }
 
 if (isset($_POST['addAllergy'])) {
@@ -48,8 +47,6 @@ allergy_id) VALUES
   $stmt->bindValue(':user_id', $user_id);
   $stmt->execute();
   unset($_POST['addAllergy']);
-  unset($allergyArray);
-}
 ?>
 <html lang="en">
 
