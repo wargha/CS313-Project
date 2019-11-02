@@ -104,7 +104,7 @@ foreach ($db->query('SELECT
             echo'
           <div class="d-flex flex-column ml-2">
             <h5 class="card-title text-center">'. ucfirst($row['title']) . '</h5>
-            <a href="#" class="btn btn-primary btn-md ">See Description</a>
+            <a href="#" class="btn btn-primary btn-md  data-target="#modal-recipe-day"">See Description</a>
           </div>';
           }
          
