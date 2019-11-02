@@ -47,6 +47,7 @@ allergy_id) VALUES
   $stmt->bindValue(':user_id', $user_id);
   $stmt->execute();
   unset($_POST['addAllergy']);
+}
 ?>
 <html lang="en">
 
