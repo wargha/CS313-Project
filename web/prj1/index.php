@@ -193,7 +193,6 @@ u.id = 1
               echo '
                     <div class="d-flex flex-column ml-2">
                       <h5 class="card-title text-center">' . ucfirst($row['name']) . '</h5>
-                      <a href="#" class="btn btn-primary btn-md ">See Description</a>
                     </div>';
                     $count++;
             }
@@ -259,9 +258,6 @@ u.id = 1
             </div>
           </div>
         </div>
-
-
-
         <div class="modal fade" id="modal-restaurant-day" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
