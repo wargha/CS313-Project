@@ -29,7 +29,7 @@ foreach ($db->query('SELECT
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Tables</title>
+  <title>Recipes</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -104,7 +104,7 @@ foreach ($db->query('SELECT
             echo'
           <div class="d-flex flex-column ml-2">
             <h5 class="card-title text-center">'. ucfirst($row['title']) . '</h5>
-            <a href="#" class="btn btn-primary btn-md  data-target="#modal-recipe-day"">See Description</a>
+            <a href="#" class="btn btn-primary btn-md  data-target="#recipe">See Description</a>
           </div>';
           }
          
@@ -114,7 +114,7 @@ foreach ($db->query('SELECT
           
       
         </div>
-        <div class="modal fade" id="modal-recipe-day" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal fade" id="recipe" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
               <div class="modal-header">
